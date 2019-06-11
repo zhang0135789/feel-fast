@@ -1,0 +1,34 @@
+package ${package}.${moduleName}.service.impl;
+
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+import ${mainPath}.common.utils.PageUtils;
+import ${mainPath}.common.utils.Query;
+
+import ${package}.${moduleName}.dao.${className}Dao;
+import ${package}.${moduleName}.entity.${className}Entity;
+import ${package}.${moduleName}.service.${className}Service;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+
+@Service("${classname}Service")
+public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${className}Entity> implements ${className}Service {
+
+    @Resource
+    private ${className}Dao ${classname}Dao;
+
+    @Override
+    public PageUtils selectListPage(Map<String, Object> params) {
+        Map<String,Object> param = new Query<>(params);
+        List<${className}Entity> list = ${classname}Dao.selectListByMap(param);
+        int count = ${classname}Dao.selectCounts();
+        PageUtils page = new PageUtils(list , count , ((Query) param).getLimit() , ((Query) param).getCurrPage());
+        return page;
+    }
+
+}

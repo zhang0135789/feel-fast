@@ -1,0 +1,40 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.feel.modules.app.utils.JwtUtils",
+      "name": "feel.jwt",
+      "type": "com.feel.modules.app.utils.JwtUtils"
+    },
+    {
+      "sourceType": "com.feel.datasources.DynamicDataSourceConfig",
+      "name": "spring.datasource.druid.first",
+      "sourceMethod": "firstDataSource()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.feel.datasources.DynamicDataSourceConfig",
+      "name": "spring.datasource.druid.second",
+      "sourceMethod": "secondDataSource()",
+      "type": "javax.sql.DataSource"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.feel.modules.app.utils.JwtUtils",
+      "defaultValue": 0,
+      "name": "feel.jwt.expire",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.feel.modules.app.utils.JwtUtils",
+      "name": "feel.jwt.header",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.feel.modules.app.utils.JwtUtils",
+      "name": "feel.jwt.secret",
+      "type": "java.lang.String"
+    }
+  ]
+}

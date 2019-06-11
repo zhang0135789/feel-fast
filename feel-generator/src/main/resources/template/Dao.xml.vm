@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="${package}.${moduleName}.dao.${className}Dao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="${package}.${moduleName}.entity.${className}Entity" id="${classname}Map">
+#foreach($column in $columns)
+        <result property="${column.attrname}" column="${column.columnName}"/>
+#end
+    </resultMap>
+
+
+    <select id="selectListByMap" resultMap="${classname}Map">
+        SELECT * FROM ${tableName}
+        <where>
+        #foreach($column in $columns)
+        <if test="${column.attrname} != null" >
+            ${column.columnName} = #{${column.attrname}} AND
+        </if>
+        #end
+        1=1
+        </where>
+        ORDER BY create_time DESC
+        LIMIT #{offset},#{limit}
+    </select>
+
+
+    <select id="selectCounts" resultType="java.lang.Integer">
+        SELECT count(1) FROM ${tableName}
+    </select>
+
+
+
+</mapper>
