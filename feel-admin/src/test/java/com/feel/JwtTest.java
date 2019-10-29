@@ -1,6 +1,6 @@
 package com.feel;
 
-import com.feel.modules.app.utils.JwtUtils;
+import com.feel.common.utils.JwtUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

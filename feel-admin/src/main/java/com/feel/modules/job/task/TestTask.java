@@ -1,7 +1,7 @@
 package com.feel.modules.job.task;
 
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 feel开源 http://www.renren.io
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of

@@ -2,8 +2,8 @@ package com.feel.modules.app.interceptor;
 
 
 import com.feel.common.exception.RRException;
+import com.feel.common.utils.JwtUtils;
 import com.feel.modules.app.annotation.Login;
-import com.feel.modules.app.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

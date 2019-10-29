@@ -7,7 +7,7 @@
 
   //window.SITE_CONFIG['baseUrl'] = 'http://localhost:10080';
   //test
-  window.SITE_CONFIG['baseUrl'] = 'http://localhost:10080';
+  window.SITE_CONFIG['baseUrl'] = 'http://localhost:10086/admin';
 
 
   // cdn地址 = 域名 + 版本号

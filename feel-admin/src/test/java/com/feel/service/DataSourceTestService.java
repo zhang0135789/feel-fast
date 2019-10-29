@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 人人开源 http://www.renren.io
+ * Copyright 2018 feel开源 http://www.renren.io
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -16,8 +16,8 @@
 
 package com.feel.service;
 
-import com.feel.datasources.DataSourceNames;
-import com.feel.datasources.annotation.DataSource;
+import com.feel.common.datasources.DataSourceNames;
+import com.feel.common.datasources.annotation.DataSource;
 import com.feel.modules.sys.entity.SysUserEntity;
 import com.feel.modules.sys.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;

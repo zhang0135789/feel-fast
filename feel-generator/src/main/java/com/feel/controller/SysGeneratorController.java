@@ -1,7 +1,7 @@
 /**
- * Copyright (c) 2018 人人开源 All rights reserved.
+ * Copyright (c) 2018 feel开源 All rights reserved.
  *
- * https://www.renren.io
+ * https://www.feel.io
  *
  * 版权所有，侵权必究！
  */
