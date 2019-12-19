@@ -31,10 +31,10 @@ public class ${className}Entity implements Serializable {
 	 * $column.comments
 	 */
 	#if($column.columnName == $pk.columnName)
-@TableId
+	@TableId
 	#end
-@ApiModelProperty(name = "${column.attrname}" , value = "${column.comments}")
-private $column.attrType $column.attrname;
+	@ApiModelProperty(name = "${column.attrname}" , value = "${column.comments}")
+	private $column.attrType $column.attrname;
 #end
 
 }
