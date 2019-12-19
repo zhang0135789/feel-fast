@@ -38,7 +38,7 @@ public class ${className}Controller {
     @RequestMapping("/list")
     @RequiresPermissions("${moduleName}:${pathName}:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = ${classname}Service.selectListPage(params);
+        PageUtils page = ${classname}Service.queryPage(params);
 
         return R.ok().put("page", page);
     }
