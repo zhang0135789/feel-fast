@@ -1,7 +1,7 @@
 package ${package}.${moduleName}.dao;
 
 import ${package}.${moduleName}.entity.${className}Entity;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -17,9 +17,5 @@ import java.util.Map;
 
 @Mapper
 public interface ${className}Dao extends BaseMapper<${className}Entity> {
-
-    List<${className}Entity> selectListByMap(Map<String, Object> param);
-
-    int selectCounts();
 
 }

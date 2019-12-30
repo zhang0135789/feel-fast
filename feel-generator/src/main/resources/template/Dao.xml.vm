@@ -11,25 +11,4 @@
     </resultMap>
 
 
-    <select id="selectListByMap" resultMap="${classname}Map">
-        SELECT * FROM ${tableName}
-        <where>
-        #foreach($column in $columns)
-        <if test="${column.attrname} != null" >
-            ${column.columnName} = #{${column.attrname}} AND
-        </if>
-        #end
-        1=1
-        </where>
-        ORDER BY create_time DESC
-        LIMIT #{offset},#{limit}
-    </select>
-
-
-    <select id="selectCounts" resultType="java.lang.Integer">
-        SELECT count(1) FROM ${tableName}
-    </select>
-
-
-
 </mapper>
