@@ -17,7 +17,7 @@
 package com.feel.modules.oss.dao;
 
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.feel.modules.oss.entity.SysOssEntity;
 import org.apache.ibatis.annotations.Mapper;
 

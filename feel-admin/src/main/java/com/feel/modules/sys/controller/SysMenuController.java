@@ -1,17 +1,9 @@
 /**
- * Copyright 2018 feel开源 http://www.feel.io
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
  */
 
 package com.feel.modules.sys.controller;
@@ -26,6 +18,7 @@ import com.feel.modules.sys.service.SysMenuService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,9 +27,7 @@ import java.util.Set;
 /**
  * 系统菜单
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年10月27日 下午9:58:15
+ * @author Mark sunlightcs@gmail.com
  */
 @RestController
 @RequestMapping("/sys/menu")
@@ -62,9 +53,9 @@ public class SysMenuController extends AbstractController {
 	@GetMapping("/list")
 	@RequiresPermissions("sys:menu:list")
 	public List<SysMenuEntity> list(){
-		List<SysMenuEntity> menuList = sysMenuService.selectList(null);
+		List<SysMenuEntity> menuList = sysMenuService.list();
 		for(SysMenuEntity sysMenuEntity : menuList){
-			SysMenuEntity parentMenuEntity = sysMenuService.selectById(sysMenuEntity.getParentId());
+			SysMenuEntity parentMenuEntity = sysMenuService.getById(sysMenuEntity.getParentId());
 			if(parentMenuEntity != null){
 				sysMenuEntity.setParentName(parentMenuEntity.getName());
 			}
@@ -99,7 +90,7 @@ public class SysMenuController extends AbstractController {
 	@GetMapping("/info/{menuId}")
 	@RequiresPermissions("sys:menu:info")
 	public R info(@PathVariable("menuId") Long menuId){
-		SysMenuEntity menu = sysMenuService.selectById(menuId);
+		SysMenuEntity menu = sysMenuService.getById(menuId);
 		return R.ok().put("menu", menu);
 	}
 
@@ -113,7 +104,7 @@ public class SysMenuController extends AbstractController {
 		//数据校验
 		verifyForm(menu);
 
-		sysMenuService.insert(menu);
+		sysMenuService.save(menu);
 
 		return R.ok();
 	}
@@ -177,7 +168,7 @@ public class SysMenuController extends AbstractController {
 		//上级菜单类型
 		int parentType = Constant.MenuType.CATALOG.getValue();
 		if(menu.getParentId() != 0){
-			SysMenuEntity parentMenu = sysMenuService.selectById(menu.getParentId());
+			SysMenuEntity parentMenu = sysMenuService.getById(menu.getParentId());
 			parentType = parentMenu.getType();
 		}
 

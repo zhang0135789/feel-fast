@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.feel</groupId>
 	<artifactId>feel-generator</artifactId>
-	<version>1.0.0</version>
+	<version>3.0.0</version>
 	<packaging>jar</packaging>
 	<description>feel-generator</description>
 

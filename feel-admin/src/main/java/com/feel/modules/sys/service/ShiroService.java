@@ -1,4 +1,13 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.modules.sys.service;
+
 
 import com.feel.modules.sys.entity.SysUserEntity;
 import com.feel.modules.sys.entity.SysUserTokenEntity;
@@ -7,9 +16,8 @@ import java.util.Set;
 
 /**
  * shiro相关接口
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-06-06 8:49
+ *
+ * @author Mark sunlightcs@gmail.com
  */
 public interface ShiroService {
     /**

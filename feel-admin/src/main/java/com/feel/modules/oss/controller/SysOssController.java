@@ -1,17 +1,9 @@
 /**
- * Copyright 2018 feel开源 http://www.renren.io
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
  */
 
 package com.feel.modules.oss.controller;
@@ -29,8 +21,8 @@ import com.feel.modules.oss.cloud.CloudStorageConfig;
 import com.feel.modules.oss.cloud.OSSFactory;
 import com.feel.modules.oss.entity.SysOssEntity;
 import com.feel.modules.oss.service.SysOssService;
-import com.google.gson.Gson;
 import com.feel.modules.sys.service.SysConfigService;
+import com.google.gson.Gson;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,19 +35,17 @@ import java.util.Map;
 /**
  * 文件上传
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-25 12:13:26
+ * @author Mark sunlightcs@gmail.com
  */
 @RestController
 @RequestMapping("sys/oss")
 public class SysOssController {
 	@Autowired
 	private SysOssService sysOssService;
-    @Autowired
-    private SysConfigService sysConfigService;
+	@Autowired
+	private SysConfigService sysConfigService;
 
-    private final static String KEY = ConfigConstant.CLOUD_STORAGE_CONFIG_KEY;
+	private final static String KEY = ConfigConstant.CLOUD_STORAGE_CONFIG_KEY;
 
 	/**
 	 * 列表
@@ -69,16 +59,16 @@ public class SysOssController {
 	}
 
 
-    /**
-     * 云存储配置信息
-     */
-    @GetMapping("/config")
-    @RequiresPermissions("sys:oss:all")
-    public R config(){
-        CloudStorageConfig config = sysConfigService.getConfigObject(KEY, CloudStorageConfig.class);
+	/**
+	 * 云存储配置信息
+	 */
+	@GetMapping("/config")
+	@RequiresPermissions("sys:oss:all")
+	public R config(){
+		CloudStorageConfig config = sysConfigService.getConfigObject(KEY, CloudStorageConfig.class);
 
-        return R.ok().put("config", config);
-    }
+		return R.ok().put("config", config);
+	}
 
 
 	/**
@@ -101,7 +91,7 @@ public class SysOssController {
 			ValidatorUtils.validateEntity(config, QcloudGroup.class);
 		}
 
-        sysConfigService.updateValueByKey(KEY, new Gson().toJson(config));
+		sysConfigService.updateValueByKey(KEY, new Gson().toJson(config));
 
 		return R.ok();
 	}
@@ -125,7 +115,7 @@ public class SysOssController {
 		SysOssEntity ossEntity = new SysOssEntity();
 		ossEntity.setUrl(url);
 		ossEntity.setCreateDate(new Date());
-		sysOssService.insert(ossEntity);
+		sysOssService.save(ossEntity);
 
 		return R.ok().put("url", url);
 	}
@@ -137,7 +127,7 @@ public class SysOssController {
 	@PostMapping("/delete")
 	@RequiresPermissions("sys:oss:all")
 	public R delete(@RequestBody Long[] ids){
-		sysOssService.deleteBatchIds(Arrays.asList(ids));
+		sysOssService.removeByIds(Arrays.asList(ids));
 
 		return R.ok();
 	}

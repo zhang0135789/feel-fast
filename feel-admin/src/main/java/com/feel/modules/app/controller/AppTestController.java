@@ -1,10 +1,18 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.modules.app.controller;
 
 
 import com.feel.common.utils.R;
+import com.feel.modules.app.annotation.Login;
 import com.feel.modules.app.annotation.LoginUser;
 import com.feel.modules.app.entity.UserEntity;
-import com.feel.modules.app.annotation.Login;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * APP测试接口
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-03-23 15:47
+ * @author Mark sunlightcs@gmail.com
  */
 @RestController
 @RequestMapping("/app")

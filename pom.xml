@@ -4,30 +4,33 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.feel</groupId>
     <artifactId>feel-fast</artifactId>
-    <version>1.0.0</version>
+    <version>3.0.0</version>
     <packaging>pom</packaging>
     <description>feel-fast</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.6.RELEASE</version>
+        <version>2.1.8.RELEASE</version>
     </parent>
 
     <modules>
         <module>feel-admin</module>
         <module>feel-common</module>
         <module>feel-api</module>
-        <module>feel-generator</module>
+<!--        <module>feel-generator</module>-->
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>
-        <mybatisplus.version>2.2.0</mybatisplus.version>
-        <mysql.version>5.1.38</mysql.version>
+<!--        <mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>-->
+<!--        <mybatisplus.version>2.2.0</mybatisplus.version>-->
+        <mybatisplus.version>3.2.0</mybatisplus.version>
+<!--        <mysql.version>5.1.38</mysql.version>-->
+        <mysql.version>8.0.17</mysql.version>
+
         <mssql.version>4.0</mssql.version>
         <oracle.version>11.2.0.3</oracle.version>
         <druid.version>1.1.10</druid.version>
@@ -40,16 +43,22 @@
         <shiro.version>1.4.0</shiro.version>
         <jwt.version>0.7.0</jwt.version>
         <kaptcha.version>0.0.9</kaptcha.version>
-        <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
+<!--        <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>-->
+        <qiniu.version>7.2.23</qiniu.version>
         <aliyun.oss.version>2.8.3</aliyun.oss.version>
         <qcloud.cos.version>4.4</qcloud.cos.version>
         <swagger.version>2.7.0</swagger.version>
         <joda.time.version>2.9.9</joda.time.version>
-        <fastjson.version>1.2.47</fastjson.version>
+<!--        <fastjson.version>1.2.47</fastjson.version>-->
+        <fastjson.version>1.2.60</fastjson.version>
         <hutool.version>4.1.1</hutool.version>
         <java-websocket.version>1.3.9</java-websocket.version>
         <jedis.version>2.1.0</jedis.version>
         <jsch.version>0.1.53</jsch.version>
+
+        <gson.version>2.8.5</gson.version>
+        <lombok.version>1.18.4</lombok.version>
+
 
         <!--wagon plugin 配置-->
         <service-path>/work/feel</service-path>
@@ -57,7 +66,6 @@
         <remote-addr>192.168.1.10:22</remote-addr>
         <remote-username>root</remote-username>
         <remote-passwd>root</remote-passwd>
-        <lombok.version>1.18.4</lombok.version>
 
     </properties>
 
@@ -134,7 +142,6 @@
 
 
 
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -168,13 +175,14 @@
         <!--</dependency>-->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatisplus-spring-boot-starter</artifactId>
-            <version>${mybatisplus.spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatisplus.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-generator</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -182,22 +190,22 @@
             <version>${mysql.version}</version>
         </dependency>
         <!--oracle驱动-->
-        <!--<dependency>-->
-        <!--<groupId>com.oracle</groupId>-->
-        <!--<artifactId>ojdbc6</artifactId>-->
-        <!--<version>${oracle.version}</version>-->
-        <!--</dependency>-->
-        <!--mssql驱动-->
-        <!--<dependency>-->
-        <!--<groupId>com.microsoft.sqlserver</groupId>-->
-        <!--<artifactId>sqljdbc4</artifactId>-->
-        <!--<version>${mssql.version}</version>-->
-        <!--</dependency>-->
-        <!--postgresql驱动-->
-        <!--<dependency>-->
-        <!--<groupId>org.postgresql</groupId>-->
-        <!--<artifactId>postgresql</artifactId>-->
-        <!--</dependency>-->
+        <!--<dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${oracle.version}</version>
+        </dependency>
+        &lt;!&ndash;mssql驱动&ndash;&gt;
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>${mssql.version}</version>
+        </dependency>
+        &lt;!&ndash;postgresql驱动&ndash;&gt;
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
@@ -294,6 +302,11 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${joda.time.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

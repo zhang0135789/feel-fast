@@ -1,7 +1,15 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.modules.sys.oauth2;
 
-import com.feel.modules.sys.entity.SysUserTokenEntity;
 import com.feel.modules.sys.entity.SysUserEntity;
+import com.feel.modules.sys.entity.SysUserTokenEntity;
 import com.feel.modules.sys.service.ShiroService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -16,9 +24,7 @@ import java.util.Set;
 /**
  * 认证
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-05-20 14:00
+ * @author Mark sunlightcs@gmail.com
  */
 @Component
 public class OAuth2Realm extends AuthorizingRealm {

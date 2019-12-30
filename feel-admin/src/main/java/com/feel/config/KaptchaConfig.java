@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.config;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
@@ -11,9 +19,7 @@ import java.util.Properties;
 /**
  * 生成验证码配置
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-04-20 19:22
+ * @author Mark sunlightcs@gmail.com
  */
 @Configuration
 public class KaptchaConfig {
@@ -24,6 +30,7 @@ public class KaptchaConfig {
         properties.put("kaptcha.border", "no");
         properties.put("kaptcha.textproducer.font.color", "black");
         properties.put("kaptcha.textproducer.char.space", "5");
+        properties.put("kaptcha.textproducer.font.names", "Arial,Courier,cmr10,宋体,楷体,微软雅黑");
         Config config = new Config(properties);
         DefaultKaptcha defaultKaptcha = new DefaultKaptcha();
         defaultKaptcha.setConfig(config);

@@ -1,6 +1,14 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.modules.sys.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.feel.common.utils.PageUtils;
 import com.feel.modules.sys.entity.SysRoleEntity;
 
@@ -11,15 +19,13 @@ import java.util.Map;
 /**
  * 角色
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年9月18日 上午9:42:52
+ * @author Mark sunlightcs@gmail.com
  */
 public interface SysRoleService extends IService<SysRoleEntity> {
 
 	PageUtils queryPage(Map<String, Object> params);
 
-	void save(SysRoleEntity role);
+	void saveRole(SysRoleEntity role);
 
 	void update(SysRoleEntity role);
 

@@ -16,7 +16,7 @@
 
 package com.feel.modules.oss.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.feel.common.utils.PageUtils;
 import com.feel.modules.oss.entity.SysOssEntity;
 

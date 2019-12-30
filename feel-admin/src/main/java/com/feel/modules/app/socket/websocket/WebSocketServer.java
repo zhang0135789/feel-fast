@@ -25,8 +25,8 @@ import java.util.Map;
 /**
  * webSocket 服务端
  */
-@ServerEndpoint(value = "/websocket")
-@Component
+//@ServerEndpoint(value = "/websocket")
+//@Component
 public class WebSocketServer {
     private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 

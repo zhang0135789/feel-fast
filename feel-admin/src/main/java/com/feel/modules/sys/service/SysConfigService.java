@@ -1,23 +1,14 @@
 /**
- * Copyright 2018 feel开源 http://www.feel.io
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
  */
 
 package com.feel.modules.sys.service;
 
-
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.feel.common.utils.PageUtils;
 import com.feel.modules.sys.entity.SysConfigEntity;
 
@@ -26,18 +17,16 @@ import java.util.Map;
 /**
  * 系统配置信息
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2016年12月4日 下午6:49:01
+ * @author Mark sunlightcs@gmail.com
  */
-public interface SysConfigService extends IService<SysConfigEntity>  {
+public interface SysConfigService extends IService<SysConfigEntity> {
 
 	PageUtils queryPage(Map<String, Object> params);
 
 	/**
 	 * 保存配置信息
 	 */
-	public void save(SysConfigEntity config);
+	public void saveConfig(SysConfigEntity config);
 
 	/**
 	 * 更新配置信息

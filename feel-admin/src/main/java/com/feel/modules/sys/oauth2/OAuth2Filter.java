@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.modules.sys.oauth2;
 
 import com.feel.common.utils.HttpContextUtils;
@@ -19,9 +27,7 @@ import java.io.IOException;
 /**
  * oauth2过滤器
  *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017-05-20 13:00
+ * @author Mark sunlightcs@gmail.com
  */
 public class OAuth2Filter extends AuthenticatingFilter {
 

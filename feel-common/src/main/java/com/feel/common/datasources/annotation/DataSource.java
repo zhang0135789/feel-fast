@@ -1,16 +1,24 @@
+/**
+ * Copyright (c) 2018 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
+ */
+
 package com.feel.common.datasources.annotation;
 
 import java.lang.annotation.*;
 
 /**
  * 多数据源注解
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017/9/16 22:16
+ *
+ * @author Mark sunlightcs@gmail.com
  */
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+@Inherited
 public @interface DataSource {
-    String name() default "";
+    String value() default "";
 }

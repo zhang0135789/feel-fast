@@ -1,16 +1,12 @@
+
 spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
-        driverClassName: com.mysql.jdbc.Driver
         druid:
-            first:  #数据源1
-                url: jdbc:mysql://localhost:3306/feel_fast?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-                username: root
-                password: root
-            second:  #数据源2
-                url: jdbc:mysql://localhost:3306/feel_fast?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-                username: root
-                password: root
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://localhost:3306/feel_fast?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+            username: root
+            password: root
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -19,6 +15,7 @@ spring:
             max-pool-prepared-statement-per-connection-size: 20
             time-between-eviction-runs-millis: 60000
             min-evictable-idle-time-millis: 300000
+            #Oracle需要打开注释
             #validation-query: SELECT 1 FROM DUAL
             test-while-idle: true
             test-on-borrow: false
@@ -36,3 +33,18 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
+
+
+##多数据源的配置
+#dynamic:
+#  datasource:
+#    slave1:
+#      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#      url: jdbc:sqlserver://localhost:1433;DatabaseName=renren_security
+#      username: sa
+#      password: 123456
+#    slave2:
+#      driver-class-name: org.postgresql.Driver
+#      url: jdbc:postgresql://localhost:5432/renren_security
+#      username: renren
+#      password: 123456

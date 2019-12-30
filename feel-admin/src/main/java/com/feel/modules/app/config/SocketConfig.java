@@ -11,7 +11,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 /**
  * 注册 Socket
  */
-@Configuration
+//@Configuration
 public class SocketConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(SocketConfig.class);

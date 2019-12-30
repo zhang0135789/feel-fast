@@ -5,11 +5,12 @@
     <parent>
         <artifactId>feel-fast</artifactId>
         <groupId>com.feel</groupId>
-        <version>1.0.0</version>
+        <version>3.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>feel-common</artifactId>
     <packaging>jar</packaging>
+    <version>3.0.0</version>
     <description>feel-common</description>
 
 

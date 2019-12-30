@@ -1,17 +1,9 @@
 /**
- * Copyright 2018 feel开源 http://www.renren.io
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not
- * use this file except in compliance with the License. You may obtain a copy of
- * the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
- * License for the specific language governing permissions and limitations under
- * the License.
+ * Copyright (c) 2016-2019 人人开源 All rights reserved.
+ *
+ * https://www.renren.io
+ *
+ * 版权所有，侵权必究！
  */
 
 package com.feel.modules.job.controller;
@@ -32,7 +24,6 @@ import java.util.Map;
  * 定时任务
  *
  * @author Mark sunlightcs@gmail.com
- * @since 1.2.0 2016-11-28
  */
 @RestController
 @RequestMapping("/sys/schedule")
@@ -43,7 +34,7 @@ public class ScheduleJobController {
 	/**
 	 * 定时任务列表
 	 */
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	@RequiresPermissions("sys:schedule:list")
 	public R list(@RequestParam Map<String, Object> params){
 		PageUtils page = scheduleJobService.queryPage(params);
@@ -54,10 +45,10 @@ public class ScheduleJobController {
 	/**
 	 * 定时任务信息
 	 */
-	@GetMapping("/info/{jobId}")
+	@RequestMapping("/info/{jobId}")
 	@RequiresPermissions("sys:schedule:info")
 	public R info(@PathVariable("jobId") Long jobId){
-		ScheduleJobEntity schedule = scheduleJobService.selectById(jobId);
+		ScheduleJobEntity schedule = scheduleJobService.getById(jobId);
 
 		return R.ok().put("schedule", schedule);
 	}
@@ -66,12 +57,12 @@ public class ScheduleJobController {
 	 * 保存定时任务
 	 */
 	@SysLog("保存定时任务")
-	@PostMapping("/save")
+	@RequestMapping("/save")
 	@RequiresPermissions("sys:schedule:save")
 	public R save(@RequestBody ScheduleJobEntity scheduleJob){
 		ValidatorUtils.validateEntity(scheduleJob);
 
-		scheduleJobService.save(scheduleJob);
+		scheduleJobService.saveJob(scheduleJob);
 
 		return R.ok();
 	}
@@ -80,7 +71,7 @@ public class ScheduleJobController {
 	 * 修改定时任务
 	 */
 	@SysLog("修改定时任务")
-	@PostMapping("/update")
+	@RequestMapping("/update")
 	@RequiresPermissions("sys:schedule:update")
 	public R update(@RequestBody ScheduleJobEntity scheduleJob){
 		ValidatorUtils.validateEntity(scheduleJob);
@@ -94,7 +85,7 @@ public class ScheduleJobController {
 	 * 删除定时任务
 	 */
 	@SysLog("删除定时任务")
-	@PostMapping("/delete")
+	@RequestMapping("/delete")
 	@RequiresPermissions("sys:schedule:delete")
 	public R delete(@RequestBody Long[] jobIds){
 		scheduleJobService.deleteBatch(jobIds);
@@ -106,7 +97,7 @@ public class ScheduleJobController {
 	 * 立即执行任务
 	 */
 	@SysLog("立即执行任务")
-	@PostMapping("/run")
+	@RequestMapping("/run")
 	@RequiresPermissions("sys:schedule:run")
 	public R run(@RequestBody Long[] jobIds){
 		scheduleJobService.run(jobIds);
@@ -118,7 +109,7 @@ public class ScheduleJobController {
 	 * 暂停定时任务
 	 */
 	@SysLog("暂停定时任务")
-	@PostMapping("/pause")
+	@RequestMapping("/pause")
 	@RequiresPermissions("sys:schedule:pause")
 	public R pause(@RequestBody Long[] jobIds){
 		scheduleJobService.pause(jobIds);
@@ -130,7 +121,7 @@ public class ScheduleJobController {
 	 * 恢复定时任务
 	 */
 	@SysLog("恢复定时任务")
-	@PostMapping("/resume")
+	@RequestMapping("/resume")
 	@RequiresPermissions("sys:schedule:resume")
 	public R resume(@RequestBody Long[] jobIds){
 		scheduleJobService.resume(jobIds);
