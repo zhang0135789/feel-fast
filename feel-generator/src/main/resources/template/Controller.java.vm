@@ -27,6 +27,7 @@ import ${mainPath}.common.utils.R;
  */
 @RestController
 @RequestMapping("${moduleName}/${pathName}")
+@Api(tags="${comments}",value = "${comments}")
 public class ${className}Controller {
 
     @Autowired
@@ -35,8 +36,13 @@ public class ${className}Controller {
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     @RequiresPermissions("${moduleName}:${pathName}:list")
+    @ApiOperation(value = "接口功能", notes = "接口功能")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageIndex", value = "pageIndex", required = false, dataType = "int", paramType = "json"),
+            @ApiImplicitParam(name = "pageSize", value = "pageSize", required = true, dataType = "int", paramType = "json")
+    })
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = ${classname}Service.queryPage(params);
 
@@ -46,10 +52,10 @@ public class ${className}Controller {
     /**
      * 信息
      */
-    @RequestMapping("/info/{${pk.attrname}}")
+    @GetMapping("/info/{${pk.attrname}}")
     @RequiresPermissions("${moduleName}:${pathName}:info")
     public R info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
-		${className}Entity ${classname} = ${classname}Service.getById(${pk.attrname});
+            ${className}Entity ${classname} = ${classname}Service.getById(${pk.attrname});
 
         return R.ok().put("${classname}", ${classname});
     }
@@ -57,10 +63,10 @@ public class ${className}Controller {
     /**
      * 保存
      */
-    @RequestMapping("/save")
+    @PostMapping("/save")
     @RequiresPermissions("${moduleName}:${pathName}:save")
     public R save(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.save(${classname});
+            ${classname}Service.save(${classname});
 
         return R.ok();
     }
@@ -68,10 +74,10 @@ public class ${className}Controller {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PostMapping("/update")
     @RequiresPermissions("${moduleName}:${pathName}:update")
     public R update(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.updateById(${classname});
+            ${classname}Service.updateById(${classname});
 
         return R.ok();
     }
@@ -79,10 +85,10 @@ public class ${className}Controller {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
+    @DeleteMapping("/delete")
     @RequiresPermissions("${moduleName}:${pathName}:delete")
     public R delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-		${classname}Service.removeByIds(Arrays.asList(${pk.attrname}s));
+            ${classname}Service.removeByIds(Arrays.asList(${pk.attrname}s));
 
         return R.ok();
     }
