@@ -15,6 +15,7 @@ import ${package}.${moduleName}.entity.${className}Entity;
 import ${package}.${moduleName}.service.${className}Service;
 import ${mainPath}.common.utils.PageUtils;
 import ${mainPath}.common.utils.R;
+import ${mainPath}.common.utils.query.QueryParam;
 
 
 
@@ -43,8 +44,8 @@ public class ${className}Controller {
             @ApiImplicitParam(name = "pageIndex", value = "pageIndex", required = false, dataType = "int", paramType = "json"),
             @ApiImplicitParam(name = "pageSize", value = "pageSize", required = true, dataType = "int", paramType = "json")
     })
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = ${classname}Service.queryPage(params);
+    public R list(@RequestParam QueryParam<${className}Entity> queryParam){
+        PageUtils page = ${classname}Service.queryPage(queryParam);
 
         return R.ok().put("page", page);
     }
