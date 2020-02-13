@@ -2,6 +2,7 @@ package ${package}.${moduleName}.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import ${mainPath}.common.utils.PageUtils;
+import ${mainPath}.common.utils.query.QueryParam;
 import ${package}.${moduleName}.entity.${className}Entity;
 
 import java.util.Map;
