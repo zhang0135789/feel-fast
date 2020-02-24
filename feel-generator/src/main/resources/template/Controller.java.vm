@@ -46,7 +46,7 @@ public class ${className}Controller {
             @ApiImplicitParam(name = "pageIndex", value = "pageIndex", required = false, dataType = "int", paramType = "json"),
             @ApiImplicitParam(name = "pageSize", value = "pageSize", required = true, dataType = "int", paramType = "json")
     })
-    public R list(@RequestParam QueryParam<${className}Entity> queryParam){
+    public R list(QueryParam<${className}Entity> queryParam){
         PageUtils page = ${classname}Service.queryPage(queryParam);
 
         return R.ok().put("page", page);
