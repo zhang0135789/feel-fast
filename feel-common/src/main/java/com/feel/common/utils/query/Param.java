@@ -1,6 +1,7 @@
 package com.feel.common.utils.query;
 
-import com.feel.modules.app.query.Term.Type;
+
+import com.feel.common.utils.query.Term.Type;
 
 import java.util.LinkedList;
 import java.util.List;
