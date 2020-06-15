@@ -2,6 +2,9 @@ package ${package}.${moduleName}.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -10,6 +13,8 @@ import io.swagger.annotations.ApiModelProperty;
 	#end
 import java.io.Serializable;
 import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,13 +31,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ApiModel("${comments}")
 public class ${className}Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	#foreach ($column in $columns)
-		/**
-		 * $column.comments
-		 */
+
+
+        @ApiModelProperty("$column.comments")
 		#if($column.columnName == $pk.columnName)
 		@TableId
 		#end
