@@ -23,7 +23,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @TableName("${tableName}")
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class ${className}Entity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -38,5 +40,4 @@ public class ${className}Entity implements Serializable {
 	private $column.attrType $column.attrname;
 	#end
 
-	public ${className}Entity() {}
 }
