@@ -7,9 +7,9 @@
       <el-form-item label="bean名称" prop="beanName">
         <el-input v-model="dataForm.beanName" placeholder="spring bean名称, 如: testTask"></el-input>
       </el-form-item>
-      <el-form-item label="方法名" prop="methodName">
+      <!--<el-form-item label="方法名" prop="methodName">
         <el-input v-model="dataForm.methodName" placeholder="spring 方法名, 如: test"></el-input>
-      </el-form-item>
+      </el-form-item>-->
       <el-form-item label="参数" prop="params">
         <el-input v-model="dataForm.params" placeholder="参数"></el-input>
       </el-form-item>
@@ -47,9 +47,6 @@
           ],
           cronExpression: [
             { required: true, message: 'cron表达式不能为空', trigger: 'blur' }
-          ],
-          methodName: [
-            { required: true, message: '方法名不能为空', trigger: 'blur' }
           ]
         }
       }
