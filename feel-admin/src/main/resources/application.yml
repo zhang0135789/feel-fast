@@ -47,6 +47,14 @@ spring:
 #    add-mappings: false
 
 
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    dao: debug
+    org:
+      mybatis: error
+    com.feel: debug
+
 #mybatis
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml

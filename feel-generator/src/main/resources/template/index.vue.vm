@@ -13,7 +13,7 @@
     <el-table :data="dataList" border v-loading="dataListLoading" @selection-change="selectionChangeHandle" style="width: 100%;">
       <el-table-column type="selection" header-align="center" align="center" width="50"> </el-table-column>
       #foreach($column in $columns)
-        <el-table-column  prop="${column.attrname}"  header-align="center"  align="center"  label="${column.comments}">
+        <el-table-column  prop="${column.attrname}"  header-align="center"  align="center"  label="${column.comments}" :show-overflow-tooltip="true">
         </el-table-column>
       #end
       <el-table-column fixed="right" header-align="center" align="center" width="150" label="操作">
@@ -62,16 +62,12 @@
       // 获取数据列表
       getDataList () {
         this.dataListLoading = true
-        const queryParams = this.$queryParams
-                .eq('key', this.dataForm.key)
-                .getParams()
         #[[this.$http({]]#
         #[[url: this.$http.adornUrl]]#('/${moduleName}/${pathName}/list'),
                 method: 'get',
                 #[[params: this.$http.adornParams({]]#
                 'pageIndex': this.pageIndex,
-                'pageSize': this.pageSize,
-      ...queryParams
+                'pageSize': this.pageSize
       })
       }).then(({data}) => {
           if (data && data.code === 1) {
