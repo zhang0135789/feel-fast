@@ -22,7 +22,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>${user.home}/admin/info/info.%d.log</fileNamePattern>
+            <fileNamePattern>${user.home}/feel-admin/info/info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -39,7 +39,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>${user.home}/admin/error/error.%d.log</fileNamePattern>
+            <fileNamePattern>${user.home}/feel-admin/error/error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
