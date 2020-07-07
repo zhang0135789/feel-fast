@@ -10,6 +10,9 @@ const http = axios.create({
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json; charset=utf-8'
+  },
+  paramsSerializer: function(params) {
+    return qs.stringify(params, { arrayFormat: 'brackets' })
   }
 })
 
